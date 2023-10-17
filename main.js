@@ -68,3 +68,34 @@
 //     p.innerHTML = isi
 // })
 
+function addTask() {
+    var taskInput = document.getElementById("task");
+    var taskText = taskInput.value;
+  
+    var taskList = document.getElementById("taskList");
+    var newTask = document.createElement("li");
+  
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+  
+    var label = document.createElement("label");
+    label.textContent = taskText;
+  
+    checkbox.addEventListener("change", function() {
+      if (checkbox.checked) {
+        label.classList.add("completed");
+      } else {
+        label.classList.remove("completed");
+      }
+    });
+  
+    newTask.appendChild(checkbox);
+    newTask.appendChild(label);
+    taskList.appendChild(newTask);
+  
+    taskInput.value = "";
+  }
+  
+  var addTaskButton = document.getElementById("addTaskButton");
+  addTaskButton.addEventListener("click", addTask);
+  
